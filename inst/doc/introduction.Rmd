@@ -16,7 +16,7 @@ knitr::opts_chunk$set(
 ```
 ----------------------------------------------------------------
 <div style="font-size: 25px; color: black; line-height: 1.5;"> Example </div>
-<div style="font-size: 15px; color: black; line-height: 1.5;"> Here is a date for cars, I want to find whether weight, horsepower and quarter  mile time will affect miles per gallon </div>
+<div style="font-size: 15px; color: black; line-height: 1.5;"> Here is a data for cars, I want to find whether weight, horsepower and quarter  mile time will affect miles per gallon </div>
 ```{r setup}
 
 library(jyzlmr)

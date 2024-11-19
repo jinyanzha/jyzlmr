@@ -19,7 +19,6 @@
 #' @export
 
 
-vignette("dplyr",package="dplyr")
 
 lmr <- function(Y, X, data) {
   # Check if the input is a data frame
