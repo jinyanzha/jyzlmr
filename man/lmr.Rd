@@ -2,20 +2,32 @@
 % Please edit documentation in R/lmr.R
 \name{lmr}
 \alias{lmr}
-\title{Custom Linear Regression Function}
+\title{Linear Regression Function}
 \usage{
 lmr(Y, X, data)
 }
 \arguments{
 \item{Y}{Response which variable you focus on}
 
-\item{X}{is the covariates which will affect Y}
+\item{X}{the covariates which will affect Y}
 
-\item{data}{Data frame containing the variables.}
+\item{data}{Data frame containing the variables data}
 }
 \value{
-A list containing the regression table and residuals summary.
+lmr function will show the linear regression model details from the variables you interested in.
+\describe{It may include following:
+  \item{\bold{R-squared}}{the R-squared for the model}
+  \item{\bold{F-statistic and degree of freedom}}{the F number and its freedom and p-value}
+  \item{\bold{residual table}}{the min, 1q, median, 3q,max number for residual}
+  \item{\bold{regression table}}{includes the different Beta(coefficients) for coviariates, the SD_error,t-value,p-value}}
 }
 \description{
-This function performs a linear regression similar to lm() but without using the built-in lm function.
+lmr is used to fit linear models, including multivariate ones. It can be used to carry out regression
+}
+\examples{
+library(jyzlmr)
+data=mtcars
+result <- lmr("mpg", "wt + hp + qsec", data)
+print(result)
+
 }

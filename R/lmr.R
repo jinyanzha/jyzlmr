@@ -1,15 +1,25 @@
-#' Custom Linear Regression Function
+#' Linear Regression Function
 #'
-#' This function performs a linear regression similar to lm() but without using the built-in lm function.
-#'
+#' lmr is used to fit linear models, including multivariate ones. It can be used to carry out regression
 #' @param Y Response which variable you focus on
-#' @param X is the covariates which will affect Y
-#' @param data Data frame containing the variables.
-#' @return A list containing the regression table and residuals summary.
+#' @param X the covariates which will affect Y
+#' @param data Data frame containing the variables data
+#' @return lmr function will show the linear regression model details from the variables you interested in.
+#' \describe{It may include following:
+#'   \item{\bold{R-squared}}{the R-squared for the model}
+#'   \item{\bold{F-statistic and degree of freedom}}{the F number and its freedom and p-value}
+#'   \item{\bold{residual table}}{the min, 1q, median, 3q,max number for residual}
+#'   \item{\bold{regression table}}{includes the different Beta(coefficients) for coviariates, the SD_error,t-value,p-value}}
+#' @examples
+#' library(jyzlmr)
+#' data=mtcars
+#' result <- lmr("mpg", "wt + hp + qsec", data)
+#' print(result)
+#'
 #' @export
 
 
-
+vignette("dplyr",package="dplyr")
 
 lmr <- function(Y, X, data) {
   # Check if the input is a data frame
