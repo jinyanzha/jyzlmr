@@ -1,0 +1,15 @@
+Package: jyzlmr
+Type: Package
+Title: What the Package Does (Title Case)
+Version: 0.1.0
+Author: persion("jinyanzha",email="jinyanz@umich.edu")
+Maintainer: The package maintainer <yourself@somewhere.net>
+Description: linear regression model, input is data and which variables you interested in the relationship
+License: none
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 7.3.2
+Suggests: 
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr
