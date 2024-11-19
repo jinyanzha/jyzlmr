@@ -340,23 +340,27 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 
 
 
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="fu">library</span>(jyzlmr)</span>
-<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a>data<span class="ot">=</span>mtcars</span>
-<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">lmr</span>(<span class="st">&quot;mpg&quot;</span>, <span class="st">&quot;wt + hp + qsec&quot;</span>, data)</span>
-<span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a><span class="fu">print</span>(result)</span>
-<span id="cb1-5"><a href="#cb1-5" tabindex="-1"></a><span class="co">#&gt; $summary</span></span>
-<span id="cb1-6"><a href="#cb1-6" tabindex="-1"></a><span class="co">#&gt; [1] &quot;Residual standard error:  2.58  on  28  degrees of freedom Multiple R-squared:  0.8348 , Adjusted R-squared:  0.8171 F-statistic:  47.15  on  3  and  28  DF, p-value:  4.506417e-11&quot;</span></span>
-<span id="cb1-7"><a href="#cb1-7" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb1-8"><a href="#cb1-8" tabindex="-1"></a><span class="co">#&gt; $residuals_table</span></span>
-<span id="cb1-9"><a href="#cb1-9" tabindex="-1"></a><span class="co">#&gt;          Min     1Q Median    3Q   Max</span></span>
-<span id="cb1-10"><a href="#cb1-10" tabindex="-1"></a><span class="co">#&gt; value -3.859 -1.642 -0.464 1.194 5.609</span></span>
-<span id="cb1-11"><a href="#cb1-11" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb1-12"><a href="#cb1-12" tabindex="-1"></a><span class="co">#&gt; $regression_table</span></span>
-<span id="cb1-13"><a href="#cb1-13" tabindex="-1"></a><span class="co">#&gt;                Estimate  Std_Error   t_value      p_value</span></span>
-<span id="cb1-14"><a href="#cb1-14" tabindex="-1"></a><span class="co">#&gt; (Intercept) 27.61052686 8.41992848  3.279188 2.784556e-03</span></span>
-<span id="cb1-15"><a href="#cb1-15" tabindex="-1"></a><span class="co">#&gt; wt          -4.35879720 0.75270039 -5.790879 3.217222e-06</span></span>
-<span id="cb1-16"><a href="#cb1-16" tabindex="-1"></a><span class="co">#&gt; hp          -0.01782227 0.01498117 -1.189645 2.441762e-01</span></span>
-<span id="cb1-17"><a href="#cb1-17" tabindex="-1"></a><span class="co">#&gt; qsec         0.51083369 0.43922153  1.163043 2.546284e-01</span></span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="do">##When you have some data, you may want to find out if there is a relationship between different variables, whether these relationships are significantly associated, and how a change in one variable affects another. For instance, if one variable doubles, how does the other change, and how do multiple variables interact with each other? The lmr function uses linear regression to quickly answer these questions and provide you with the final results.</span></span></code></pre></div>
+<p>##Example</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="do">##here is a date for cars, I want to find whether weight, horsepower and quarter  mile time will affect miles per gallon </span></span>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a><span class="fu">library</span>(jyzlmr)</span>
+<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a>data<span class="ot">=</span>mtcars</span>
+<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">lmr</span>(<span class="st">&quot;mpg&quot;</span>, <span class="st">&quot;wt + hp + qsec&quot;</span>, data)</span>
+<span id="cb2-5"><a href="#cb2-5" tabindex="-1"></a><span class="fu">print</span>(result)</span>
+<span id="cb2-6"><a href="#cb2-6" tabindex="-1"></a><span class="co">#&gt; $summary</span></span>
+<span id="cb2-7"><a href="#cb2-7" tabindex="-1"></a><span class="co">#&gt; [1] &quot;Residual standard error:  2.58  on  28  degrees of freedom Multiple R-squared:  0.8348 , Adjusted R-squared:  0.8171 F-statistic:  47.15  on  3  and  28  DF, p-value:  4.506417e-11&quot;</span></span>
+<span id="cb2-8"><a href="#cb2-8" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb2-9"><a href="#cb2-9" tabindex="-1"></a><span class="co">#&gt; $residuals_table</span></span>
+<span id="cb2-10"><a href="#cb2-10" tabindex="-1"></a><span class="co">#&gt;          Min     1Q Median    3Q   Max</span></span>
+<span id="cb2-11"><a href="#cb2-11" tabindex="-1"></a><span class="co">#&gt; value -3.859 -1.642 -0.464 1.194 5.609</span></span>
+<span id="cb2-12"><a href="#cb2-12" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb2-13"><a href="#cb2-13" tabindex="-1"></a><span class="co">#&gt; $regression_table</span></span>
+<span id="cb2-14"><a href="#cb2-14" tabindex="-1"></a><span class="co">#&gt;                Estimate  Std_Error   t_value      p_value</span></span>
+<span id="cb2-15"><a href="#cb2-15" tabindex="-1"></a><span class="co">#&gt; (Intercept) 27.61052686 8.41992848  3.279188 2.784556e-03</span></span>
+<span id="cb2-16"><a href="#cb2-16" tabindex="-1"></a><span class="co">#&gt; wt          -4.35879720 0.75270039 -5.790879 3.217222e-06</span></span>
+<span id="cb2-17"><a href="#cb2-17" tabindex="-1"></a><span class="co">#&gt; hp          -0.01782227 0.01498117 -1.189645 2.441762e-01</span></span>
+<span id="cb2-18"><a href="#cb2-18" tabindex="-1"></a><span class="co">#&gt; qsec         0.51083369 0.43922153  1.163043 2.546284e-01</span></span>
+<span id="cb2-19"><a href="#cb2-19" tabindex="-1"></a><span class="do">## we can see the result, only weight&#39;s p-value smaller than 0.05, which means only weight has the significantly association with Mile per galon</span></span></code></pre></div>
 
 
 
