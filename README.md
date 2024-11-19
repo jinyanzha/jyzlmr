@@ -6,7 +6,10 @@
 This function allows users to fit a linear model, obtain regression coefficients, calculate residuals, and assess model quality 
 through metrics such as R-squared and F-statistic.
 
-You can learn more about them in `vignette("introduction")`. 
+- You can learn more about `lmr` in `vignette("introduction",package="jyzlmr")`.
+- You can run example in `?lmr` help page
+- You can find the comparison between `lmr` and original function `lm` in `vignette("comparison",package="jyzlmr")`
+
 
 
 ## Features
