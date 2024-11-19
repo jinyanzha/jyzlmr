@@ -44,4 +44,4 @@ cat("lm runtime:", lm_time, "\n")
 
 ```
 
-<div style="font-size: 20px; color: black; line-height: 1.5;"> We can see the result, All parameters are the same and lmr is faster in terms of running efficiency  </div>
+<div style="font-size: 20px; color: black; line-height: 1.5;"> We can see the result, All parameters are the same but lmr function is slower in terms of running efficiency  </div>

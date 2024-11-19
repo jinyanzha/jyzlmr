@@ -9,7 +9,8 @@
 #'   \item{\bold{R-squared}}{the R-squared for the model}
 #'   \item{\bold{F-statistic and degree of freedom}}{the F number and its freedom and p-value}
 #'   \item{\bold{residual table}}{the min, 1q, median, 3q,max number for residual}
-#'   \item{\bold{regression table}}{includes the different Beta(coefficients) for coviariates, the SD_error,t-value,p-value}}
+#'   \item{\bold{regression table}}{includes the different Beta(coefficients) for coviariates, the SD_error,t-value,p-value}
+#'   \item{\bold{Confidence Intervals}}{includes the different CI for coviariates}}
 #' @examples
 #' library(jyzlmr)
 #' data=mtcars
@@ -66,6 +67,17 @@ lmr <- function(Y, X, data) {
   t_values <- beta / beta_se
   p_values <- 2 * pt(-abs(t_values), df = residual_df)
 
+  # 95% Confidence Intervals for regression coefficients
+  alpha <- 0.05
+  t_critical <- qt(1 - alpha / 2, df = residual_df)
+  lower_bounds <- beta - t_critical * beta_se
+  upper_bounds <- beta + t_critical * beta_se
+  confidence_intervals <- data.frame(
+    Lower_95 = lower_bounds,
+    Upper_95 = upper_bounds,
+    row.names = colnames(model_matrix)
+  )
+
   # Regression result table
   lm_table <- data.frame(
     Estimate = beta,
@@ -86,25 +98,23 @@ lmr <- function(Y, X, data) {
   residuals_table <- as.data.frame(matrix(
     round(residual_summary, 3),
     nrow = 1,
-    dimnames = list("value", c("Min", "1Q", "Median", "3Q", "Max"))
+    dimnames = list(NULL, c("Min", "1Q", "Median", "3Q", "Max"))
   ))
 
   # Format output text
   summary_text <- paste(
-    "Residual standard error: ", round(sqrt(sigma2), 2), " on ", residual_df, " degrees of freedom",
-
-    "Multiple R-squared: ", round(R2, 4), ", Adjusted R-squared: ", round(adjusted_R2, 4),
-
+    "Residual standard error: ", round(sqrt(sigma2), 2), " on ", residual_df, " degrees of freedom\n",
+    "Multiple R-squared: ", round(R2, 4), ", Adjusted R-squared: ", round(adjusted_R2, 4), "\n",
     "F-statistic: ", round(F_statistic, 2), " on ", (p - 1), " and ", residual_df, " DF, p-value: ",
-
     formatC(1 - pf(F_statistic, p - 1, residual_df), format = "e", digits = 6)
   )
 
   # Return results
   return(list(
-    summary = summary_text,       # Summary text
+    summary = summary_text,             # Summary text
     residuals_table = residuals_table,  # Residual table
-    regression_table = lm_table        # Regression results table
+    regression_table = lm_table,        # Regression results table
+    confidence_intervals = confidence_intervals # Confidence intervals for coefficients
   ))
 }
 

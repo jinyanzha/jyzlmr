@@ -19,7 +19,8 @@ lmr function will show the linear regression model details from the variables yo
   \item{\bold{R-squared}}{the R-squared for the model}
   \item{\bold{F-statistic and degree of freedom}}{the F number and its freedom and p-value}
   \item{\bold{residual table}}{the min, 1q, median, 3q,max number for residual}
-  \item{\bold{regression table}}{includes the different Beta(coefficients) for coviariates, the SD_error,t-value,p-value}}
+  \item{\bold{regression table}}{includes the different Beta(coefficients) for coviariates, the SD_error,t-value,p-value}
+  \item{\bold{Confidence Intervals}}{includes the different CI for coviariates}}
 }
 \description{
 lmr is used to fit linear models, including multivariate ones. It can be used to carry out regression
