@@ -21,6 +21,8 @@ You can learn more about them in `vignette("introduction")`.
 - model metrics including R-squared, Adjusted R-squared, and F-statistic.
 
 - Display a summary of residuals.
+ 
+- Confidence Interval for all regression coefficients
 
 ## Installation
 
@@ -71,6 +73,7 @@ Regression_table
   - model metrics including R-squared, Adjusted R-squared, F-statistic and p-values.
   - Residuals Table: A table summarizing residuals (`Min`, `1Q`, `Median`, `3Q`, `Max`).
   - Regression Table: A table containing coefficients, standard errors, t-values, and relevant p-values.
+  - Confidence Interval: A table containing all coefficients' confidence interval
 
 
 ## Interpretation of Output
@@ -78,3 +81,4 @@ Regression_table
 - The Adjusted R-squared accounts for the number of predictors in the model, providing a better measure for models with multiple predictors.
 - The F-statistic tests whether the overall regression model is a good fit for the data.
 - Residual standard error provides a measure of the typical size of residuals.
+- Confidence Interval provide a range within which we expect the true value of the regression coefficient to lie, with a certain level of confidence, in this case, 95%.
